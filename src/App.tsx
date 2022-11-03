@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+
+import { GREETING } from './constants/helloConstant';
+import { POST_DETAILS, POSTS } from './constants/routeConstants';
+import { PostsCtxProvider } from './context/PostsContext';
+import PostDetails from './pages/postDetails/PostDetails';
+import Posts from './pages/posts/Posts';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <PostsCtxProvider>
+        <Routes>
+          <Route path="/" element={<Navigate to={POSTS} />} />
+          <Route path={POSTS} element={<Posts message={GREETING} />} />
+          <Route path={POST_DETAILS} element={<PostDetails message={GREETING} />} />
+          <Route
+            path="*"
+            element={
+              <div>
+                <h2>404 Page not found</h2>
+              </div>
+            }
+          />
+        </Routes>
+      </PostsCtxProvider>
+    </BrowserRouter>
   );
 }
 
