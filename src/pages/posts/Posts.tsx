@@ -17,7 +17,7 @@ interface PostsProps {
 
 function Posts({ message }: PostsProps): ReactElement {
   console.log(`${message}Posts`);
-  const { posts, setSelectedPost, fetchData } = usePosts();
+  const { posts, setSelectedPost, fetchPosts } = usePosts();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState<string>('');
 
@@ -31,7 +31,7 @@ function Posts({ message }: PostsProps): ReactElement {
   }, []);
 
   useEffect(() => {
-    if (!posts.length) fetchData();
+    if (!posts.length) fetchPosts();
   }, []);
 
   return (
@@ -51,21 +51,24 @@ function Posts({ message }: PostsProps): ReactElement {
                 footer={
                   <>
                     <span>#{post.id}</span>
-                    <span>by {post.username}</span>
+                    <span>by {post.user.name}</span>
                   </>
                 }
                 description={
-                  <ul>
-                    {post.comments?.map((comment) => (
-                      <li key={comment.id}>{comment.body}</li>
-                    ))}
-                  </ul>
+                  <>
+                    <span>{post.body}</span>
+                    <ul>
+                      {post.comments?.map((comment) => (
+                        <li key={comment.id}>{comment.body}</li>
+                      ))}
+                    </ul>
+                  </>
                 }
                 title={post.title}
                 onClick={() => onClick(post)}
               />
             )}
-            searchBy={(post: Post) => post.username.toLowerCase().includes(searchTerm)}
+            searchBy={(post: Post) => post.user.name.toLowerCase().includes(searchTerm)}
           />
         )}
       </div>
