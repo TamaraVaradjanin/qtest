@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import DetailCard from './DetailCard';
+import { DetailCard } from './DetailCard';
 
 describe('<DetailCard>', () => {
   const renderComponent = () =>
-    render(<DetailCard title="test title" description="test description" message="Test detail card" />, {
+    render(<DetailCard title="test title" description="test description" />, {
       wrapper: BrowserRouter
     });
 

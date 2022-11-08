@@ -1,17 +1,16 @@
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import ListView from './ListView';
+import { ListItems } from './ListItems';
 
 describe('<ListView>', () => {
   const renderComponent = () =>
     render(
-      <ListView
+      <ListItems
         items={[
           { name: 'test', key: '_1' },
           { name: 'test 2', key: '_2' }
         ]}
         renderer={(item) => <p>{item.name}</p>}
-        message="Test list view"
       />,
       {
         wrapper: BrowserRouter

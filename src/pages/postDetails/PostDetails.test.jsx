@@ -2,13 +2,13 @@ import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { initialPostState, PostsContext } from '../../context/PostsContext';
 import { selectedPost as mockedPost } from '../../__mocks__/posts.json';
-import PostDetails from './PostDetails';
+import { PostDetails } from './PostDetails';
 
 describe('<Post details>', () => {
   const renderComponent = (postsState = initialPostState) =>
     render(
       <PostsContext.Provider value={postsState}>
-        <PostDetails message={'Test post details'} />
+        <PostDetails />
       </PostsContext.Provider>,
       { wrapper: BrowserRouter }
     );

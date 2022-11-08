@@ -1,5 +1,7 @@
 import { CSSProperties, ReactElement } from 'react';
 
+import baseWrapper from '../wrapper/BaseWrapper';
+
 import { bodyWrapperStyle, wrapperStyle } from './styles';
 
 interface DetailCardProps {
@@ -10,20 +12,17 @@ interface DetailCardProps {
   bodyStyle?: CSSProperties;
   titleStyle?: CSSProperties;
   descriptionStyle?: CSSProperties;
-  message: string;
 }
 
-function DetailCard({
+function DetailCardView({
   title,
   description,
   body,
   containerStyle,
   bodyStyle,
   titleStyle,
-  descriptionStyle,
-  message
+  descriptionStyle
 }: DetailCardProps) {
-  console.log(`${message}DetailCard`);
   return (
     <div
       style={{
@@ -41,4 +40,4 @@ function DetailCard({
   );
 }
 
-export default DetailCard;
+export const DetailCard = baseWrapper(DetailCardView);

@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import ListItem from './ListItem';
+import { ListItem } from './ListItem';
 
 describe('<ListItem>', () => {
   const renderComponent = () =>
-    render(<ListItem title="test title" message="Test list item" />, { wrapper: BrowserRouter });
+    render(<ListItem title="test title" />, { wrapper: BrowserRouter });
 
   test('renders expected component', () => {
     const { getByTestId } = renderComponent();
