@@ -1,16 +1,16 @@
 import { ChangeEventHandler, CSSProperties, memo, ReactElement } from 'react';
 
+import baseWrapper from '../wrapper/BaseWrapper';
+
 import { inputStyle } from './styles';
 
-type InputProps = CSSProperties & {
+interface InputProps extends CSSProperties {
   placeholder?: string;
   value?: string;
   onChange: ChangeEventHandler;
-  message: string;
-};
+}
 
-function Input({ placeholder, value, onChange, message, ...otherProps }: InputProps): ReactElement {
-  console.log(`${message}Input`);
+function InputField({ placeholder, value, onChange, ...otherProps }: InputProps): ReactElement {
   return (
     <input
       data-testid="input_field"
@@ -22,4 +22,4 @@ function Input({ placeholder, value, onChange, message, ...otherProps }: InputPr
   );
 }
 
-export default memo(Input);
+export const Input = baseWrapper(memo(InputField));

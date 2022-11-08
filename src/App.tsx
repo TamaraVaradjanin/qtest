@@ -3,8 +3,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { GREETING } from './constants/helloConstant';
 import { POST_DETAILS, POSTS } from './constants/routeConstants';
 import { PostsCtxProvider } from './context/PostsContext';
-import PostDetails from './pages/postDetails/PostDetails';
-import Posts from './pages/posts/Posts';
+import { PostDetails } from './pages/postDetails/PostDetails';
+import { Posts } from './pages/posts/Posts';
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
       <PostsCtxProvider>
         <Routes>
           <Route path="/" element={<Navigate to={POSTS} />} />
-          <Route path={POSTS} element={<Posts message={GREETING} />} />
-          <Route path={POST_DETAILS} element={<PostDetails message={GREETING} />} />
+          <Route path={POSTS} element={<Posts greet={GREETING} />} />
+          <Route path={POST_DETAILS} element={<PostDetails greet={GREETING} />} />
           <Route
             path="*"
             element={

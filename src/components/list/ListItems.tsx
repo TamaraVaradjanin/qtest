@@ -1,20 +1,19 @@
 import { CSSProperties, ReactElement } from 'react';
 
+import baseWrapper, { BaseProps } from '../wrapper/BaseWrapper';
+
 interface PropsType<T> {
   items: T[];
   renderer: (item: T) => ReactElement;
   searchBy?: (item: T) => boolean;
   containerStyle?: CSSProperties;
-  message: string;
 }
 
 interface AbstractItem {
   key: string;
 }
 
-function ListView<T extends AbstractItem>({ items, renderer, searchBy, containerStyle, message }: PropsType<T>) {
-  console.log(`${message}ListView`);
-
+function ListItemsView<T extends AbstractItem>({ items, renderer, searchBy, containerStyle }: PropsType<T>) {
   return (
     <div style={{ width: '100%', ...containerStyle }} data-testid="list_wrapper">
       {searchBy
@@ -36,4 +35,4 @@ function ListView<T extends AbstractItem>({ items, renderer, searchBy, container
   );
 }
 
-export default ListView;
+export const ListItems = baseWrapper(ListItemsView) as <T>(props: PropsType<T> & BaseProps) => ReactElement;

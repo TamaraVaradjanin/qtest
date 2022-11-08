@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { initialPostState, PostsContext } from '../../context/PostsContext';
 import Post from '../../services/posts';
 import { posts as mockedPosts } from '../../__mocks__/posts.json';
-import Posts from './Posts';
+import { Posts } from './Posts';
 
 const mockedUsedNavigate = jest.fn();
 
@@ -16,7 +16,7 @@ describe('<Posts>', () => {
   const renderComponent = (postsState = initialPostState) =>
     render(
       <PostsContext.Provider value={postsState}>
-        <Posts message={'Test posts'} />
+        <Posts />
       </PostsContext.Provider>,
       { wrapper: BrowserRouter }
     );

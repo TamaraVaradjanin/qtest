@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import Input from './Input';
+import { Input } from './Input';
 
 describe('<Input>', () => {
-  const renderComponent = () => render(<Input message="Test input" />, { wrapper: BrowserRouter });
+  const renderComponent = () => render(<Input />, { wrapper: BrowserRouter });
 
   test('renders expected component', () => {
     const { getByTestId } = renderComponent();

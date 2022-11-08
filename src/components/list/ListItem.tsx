@@ -1,5 +1,7 @@
 import { CSSProperties, MouseEventHandler, ReactElement } from 'react';
 
+import baseWrapper from '../wrapper/BaseWrapper';
+
 import { itemWrapperStyle, listItemFooterStyle } from './styles';
 
 export interface ListItemProps {
@@ -10,20 +12,17 @@ export interface ListItemProps {
   titleStyle?: CSSProperties;
   descriptionStyle?: CSSProperties;
   footerStyle?: CSSProperties;
-  message: string;
 }
 
-function ListItem({
+function ListItemView({
   title,
   description,
   footer,
   onClick,
   titleStyle,
   descriptionStyle,
-  footerStyle,
-  message
+  footerStyle
 }: ListItemProps): ReactElement {
-  console.log(`${message}ListItem`);
   return (
     <div style={itemWrapperStyle} onClick={onClick} data-testid="list_item">
       <div style={{ padding: '10px' }}>
@@ -37,4 +36,4 @@ function ListItem({
   );
 }
 
-export default ListItem;
+export const ListItem = baseWrapper(ListItemView);
