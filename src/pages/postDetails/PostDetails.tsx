@@ -1,5 +1,4 @@
-import { ReactElement, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { ReactElement } from 'react';
 
 import DetailsCard from '../../components/detailsCard/DetailCard';
 import Base from '../../components/page/Base';
@@ -15,43 +14,35 @@ interface PostDetailsProps {
 
 function PostDetails({ message }: PostDetailsProps): ReactElement {
   console.log(`${message}PostDetails`);
-  const { selectedPost, fetchPost, hasError } = usePosts();
-  const { id } = useParams();
+  const { selectedPost } = usePosts();
 
   function renderComments(comments: Comment[]) {
-    return comments.map((comment: Comment) => (
-      <div key={comment.id} style={commentContainerStyle} data-testid={`body_wrapper${comment.id}`}>
-        <p>
-          {comment.email}: <b>{comment.name}</b>
-        </p>
-        <span>{comment.body}</span>
-      </div>
-    ));
+    return (
+      <>
+        {comments.map((comment: Comment) => (
+          <div key={comment.id} style={commentContainerStyle} data-testid={`body_wrapper${comment.id}`}>
+            {comment.body}
+          </div>
+        ))}
+      </>
+    );
   }
-
-  useEffect(() => {
-    if (!selectedPost.id && !hasError && id) fetchPost(id);
-  }, []);
-
-  if (hasError) return <div data-testid="not_found">Not found</div>;
-
   return selectedPost.id ? (
     <Base message={GREETING}>
       <DetailsCard
         message={GREETING}
         title={selectedPost.title}
-        description={`by ${selectedPost.user.name}`}
+        description={`by ${selectedPost.username}`}
         body={
           <>
-            <p>{selectedPost.body}</p>
-            <h3>Comments:</h3>
+            <b>Comments:</b>
             {selectedPost.comments && renderComments(selectedPost.comments)}
           </>
         }
       />
     </Base>
   ) : (
-    <div>loading</div>
+    <div>Not found</div>
   );
 }
 

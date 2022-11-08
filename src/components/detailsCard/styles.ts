@@ -7,7 +7,7 @@ export const wrapperStyle: CSSProperties = {
   flexDirection: 'column',
   marginTop: '50px',
   border: '1px solid rgba(0,0,0,.3)',
-  width: '50%',
+  width: '30%',
   alignSelf: 'center',
   padding: '30px',
   borderRadius: '15px'

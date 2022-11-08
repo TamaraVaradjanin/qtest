@@ -13,15 +13,10 @@ describe('<Post details>', () => {
       { wrapper: BrowserRouter }
     );
 
-  test('renders mocked post', () => {
+  test('renders mocked posts and search by username that is not existing', () => {
     const { getByTestId } = renderComponent({ selectedPost: mockedPost });
     expect(getByTestId('card_title')).toHaveTextContent('Post 3');
-    expect(getByTestId('card_description')).toHaveTextContent('by Another Test User');
+    expect(getByTestId('card_description')).toHaveTextContent('by Yet Another Test');
     expect(getByTestId('body_wrapper1')).toBeInTheDocument();
-  });
-
-  test('renders not found component when user is not found', () => {
-    const { getByTestId } = renderComponent({ hasError: true, selectedPost: {} });
-    expect(getByTestId('not_found')).toBeInTheDocument();
   });
 });
