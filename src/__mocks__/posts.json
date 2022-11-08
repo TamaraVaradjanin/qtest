@@ -3,58 +3,81 @@
     {
       "id": 1,
       "title": "Post 1",
-      "username": "Test",
+      "body": "test body",
       "comments": [
         {
           "id": 1,
-          "body": "some comment"
+          "body": "some comment",
+          "email": "test@test.rs"
         },
         {
           "id": 2,
-          "body": "some other comment"
+          "body": "some other comment",
+          "email": "test2@test.rs"
         }
-      ]
+      ],
+      "user": {
+        "id": 1,
+        "name": "Test User"
+      }
     },
     {
       "id": 2,
       "title": "Post 2",
-      "username": "Another Test",
+      "body": "test test body",
       "comments": [
         {
           "id": 1,
-          "body": "some comment"
+          "body": "some comment",
+          "email": "test2@test.rs"
         },
         {
           "id": 2,
-          "body": "some other comment"
+          "body": "some other comment",
+          "email": "test@test.rs"
         },
         {
           "id": 3,
-          "body": "another comment"
+          "body": "another comment",
+          "email": "test4@test.rs"
         }
-      ]
+      ],
+      "user": {
+        "id": 1,
+        "name": "Another Test User"
+      }
     },
     {
       "id": 3,
       "title": "Post 3",
-      "username": " Yet Another Test",
+      "body": "test test test",
       "comments": [
         {
           "id": 1,
-          "body": "some comment"
+          "body": "some comment",
+          "email": "test4@test.rs"
         }
-      ]
+      ],
+      "user": {
+        "id": 1,
+        "name": "Another Test User"
+      }
     }
   ],
   "selectedPost": {
     "id": 3,
     "title": "Post 3",
-    "username": "Yet Another Test",
+    "body": "test test test",
     "comments": [
       {
         "id": 1,
-        "body": "some comment"
+        "body": "some comment",
+        "email": "test4@test.rs"
       }
-    ]
+    ],
+    "user": {
+      "id": 1,
+      "name": "Another Test User"
+    }
   }
 }
