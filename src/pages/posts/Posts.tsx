@@ -31,16 +31,16 @@ function PostsView(): ReactElement {
 
   return (
     <div style={postsContainerWrapperStyle}>
-      <Input greet={GREETING} onChange={handleOnChange} />
+      <Input message={GREETING} onChange={handleOnChange} />
       {posts.length > 0 && (
         <ListItems
-          greet={GREETING}
+          message={GREETING}
           items={posts.map((post) => {
             return { ...post, key: post.id.toString() };
           })}
           renderer={(post: Post) => (
             <ListItem
-              greet={GREETING}
+              message={GREETING}
               key={post.id}
               footer={
                 <>

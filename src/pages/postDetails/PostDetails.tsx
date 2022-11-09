@@ -32,7 +32,7 @@ function PostsDetailsView(): ReactElement {
 
   return selectedPost.id ? (
     <DetailCard
-      greet={GREETING}
+      message={GREETING}
       title={selectedPost.title}
       description={`by ${selectedPost.user.name}`}
       body={
