@@ -12,8 +12,8 @@ function App() {
       <PostsCtxProvider>
         <Routes>
           <Route path="/" element={<Navigate to={POSTS} />} />
-          <Route path={POSTS} element={<Posts greet={GREETING} />} />
-          <Route path={POST_DETAILS} element={<PostDetails greet={GREETING} />} />
+          <Route path={POSTS} element={<Posts message={GREETING} />} />
+          <Route path={POST_DETAILS} element={<PostDetails message={GREETING} />} />
           <Route
             path="*"
             element={
